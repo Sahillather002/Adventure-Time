@@ -7,7 +7,7 @@ enum PlayerState { idle, running }
 
 class Player extends SpriteAnimationGroupComponent with HasGameRef<Adventure> {
   String character;
-  Player({required this.character});
+  Player({position, required this.character}) : super(position: position);
 
   late final SpriteAnimation idleAnimation;
   late final SpriteAnimation runningAnimation;
@@ -25,17 +25,18 @@ class Player extends SpriteAnimationGroupComponent with HasGameRef<Adventure> {
   }
 
   void _loadAllAnimations() {
-    idleAnimation = SpriteAnimation.fromFrameData(
-        game.images.fromCache('Main Characters/Ninja Frog/Idle (32x32).png'),
-        SpriteAnimationData.sequenced(
-            amount: 11, stepTime: stepTime, textureSize: Vector2.all(32)));
-    runningAnimation = _spriteAnimation();
+    idleAnimation = _spriteAnimation('Run', 12);
+    runningAnimation = _spriteAnimation('Run', 11);
   }
 
-  SpriteAnimation _spriteAnimation(String character) {
+  SpriteAnimation _spriteAnimation(String state, int frameAmount) {
     return SpriteAnimation.fromFrameData(
-        game.images.fromCache('Main Characters/Ninja Frog/Run (32x32).png'),
-        SpriteAnimationData.sequenced(
-            amount: 12, stepTime: stepTime, textureSize: Vector2.all(32)));
+      game.images.fromCache('Main Characters/$character/$state (32x32).png'),
+      SpriteAnimationData.sequenced(
+        amount: frameAmount,
+        stepTime: stepTime,
+        textureSize: Vector2.all(32),
+      ),
+    );
   }
 }

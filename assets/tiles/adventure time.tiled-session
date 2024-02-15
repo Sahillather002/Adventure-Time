@@ -8,15 +8,26 @@
     ],
     "fileStates": {
         "Adventure Time.tsx": {
-            "scaleInDock": 1,
+            "scaleInDock": 1.1172,
             "scaleInEditor": 1
         },
         "Level-01.tmx": {
-            "scale": 1.4654,
-            "selectedLayer": 0,
+            "expandedObjectLayers": [
+                2
+            ],
+            "scale": 1.7213,
+            "selectedLayer": 1,
             "viewCenter": {
-                "x": 327.21441244711343,
-                "y": 198.92179609662892
+                "x": 338.4070179515482,
+                "y": 248.35879858246676
+            }
+        },
+        "Level-02.tmx": {
+            "scale": 1.864375,
+            "selectedLayer": 1,
+            "viewCenter": {
+                "x": 320.48273550117335,
+                "y": 184.24404961448207
             }
         }
     },
