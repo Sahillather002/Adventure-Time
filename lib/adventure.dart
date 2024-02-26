@@ -10,7 +10,7 @@ import 'package:flame/input.dart';
 import 'package:flutter/painting.dart';
 
 class Adventure extends FlameGame
-    with HasKeyboardHandlerComponents, DragCallbacks {
+    with HasKeyboardHandlerComponents, DragCallbacks, HasCollisionDetection {
   @override
   Color backgroundColor() => const Color(0xFF211F30);
 

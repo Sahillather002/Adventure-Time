@@ -42,6 +42,7 @@
         "Level-01.tmx"
     ],
     "project": "adventure time.tiled-project",
+    "property.type": "float",
     "recentFiles": [
         "Adventure Time.tsx",
         "Level-01.tmx"
