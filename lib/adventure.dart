@@ -1,8 +1,8 @@
 import 'dart:async';
 import 'dart:ui';
 
-import 'package:adventure/actors/player.dart';
-import 'package:adventure/levels/level.dart';
+import 'package:adventure/components/player.dart';
+import 'package:adventure/components/level.dart';
 import 'package:flame/components.dart';
 import 'package:flame/events.dart';
 import 'package:flame/game.dart';
@@ -23,7 +23,7 @@ class Adventure extends FlameGame
   FutureOr<void> onLoad() async {
     // load all images into cache
     await images.loadAllImages();
-    final world = Level(player: player, levelName: 'Level-02');
+    final world = Level(player: player, levelName: 'Level-01');
 
     cam = CameraComponent.withFixedResolution(
         world: world, width: 640, height: 360);
@@ -70,16 +70,16 @@ class Adventure extends FlameGame
       case JoystickDirection.left:
       case JoystickDirection.upLeft:
       case JoystickDirection.downLeft:
-        player.playerDirection = PlayerDirection.left;
+        player.horizontalMovement = -1;
         break;
 
       case JoystickDirection.right:
       case JoystickDirection.upRight:
       case JoystickDirection.downRight:
-        player.playerDirection = PlayerDirection.right;
+        player.horizontalMovement = 1;
         break;
       default:
-        player.playerDirection = PlayerDirection.none;
+        player.horizontalMovement = 0;
         //idle
         break;
     }
