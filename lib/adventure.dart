@@ -1,5 +1,4 @@
 import 'dart:async';
-import 'dart:ui';
 
 import 'package:adventure/components/player.dart';
 import 'package:adventure/components/level.dart';
@@ -10,7 +9,7 @@ import 'package:flame/input.dart';
 import 'package:flutter/painting.dart';
 
 class Adventure extends FlameGame
-    with HasKeyboardHandlerComponents, DragCallbacks {
+    with HasKeyboardHandlerComponents, DragCallbacks, HasCollisionDetection {
   @override
   Color backgroundColor() => const Color(0xFF211F30);
 
@@ -40,7 +39,6 @@ class Adventure extends FlameGame
 
   @override
   void update(double dt) {
-    // TODO: implement update
     if (showJoystick) {
       updateJoystick();
     }

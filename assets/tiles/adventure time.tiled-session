@@ -16,10 +16,10 @@
                 2
             ],
             "scale": 1.7481,
-            "selectedLayer": 0,
+            "selectedLayer": 1,
             "viewCenter": {
                 "x": 329.50060065213665,
-                "y": 173.0450203077627
+                "y": 171.90092099994283
             }
         },
         "Level-02.tmx": {
@@ -43,8 +43,8 @@
     ],
     "project": "adventure time.tiled-project",
     "recentFiles": [
-        "Adventure Time.tsx",
-        "Level-01.tmx"
+        "Level-01.tmx",
+        "Adventure Time.tsx"
     ],
     "tileset.lastUsedFormat": "tsx",
     "tileset.tileSize": {

@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="38">
+<map version="1.10" tiledversion="1.10.2" orientation="orthogonal" renderorder="right-down" width="40" height="23" tilewidth="16" tileheight="16" infinite="0" nextlayerid="6" nextobjectid="50">
  <tileset firstgid="1" source="Adventure Time.tsx"/>
  <layer id="1" name="Background" width="40" height="23">
   <data encoding="csv">
@@ -29,7 +29,16 @@
 </data>
  </layer>
  <objectgroup id="2" name="Spawnpoints">
-  <object id="2" name="Player" type="Player" x="192" y="288" width="32.5336" height="31.3716"/>
+  <object id="2" name="Player" type="Player" x="64" y="240" width="32.5336" height="31.3716"/>
+  <object id="39" name="Cherries" type="Fruit" x="288" y="112" width="32" height="32"/>
+  <object id="44" type="Saw" x="272" y="304" width="32" height="32">
+   <properties>
+    <property name="isVertical" type="bool" value="false"/>
+    <property name="offNeg" type="float" value="6"/>
+    <property name="offPos" type="float" value="6"/>
+   </properties>
+  </object>
+  <object id="49" name="Cherries" type="Fruit" x="560" y="176" width="32" height="32"/>
  </objectgroup>
  <objectgroup id="5" name="Collisions">
   <object id="5" x="32" y="32" width="16" height="304"/>
