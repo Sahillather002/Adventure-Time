@@ -1,7 +1,7 @@
 import 'dart:async';
 
 import 'package:adventure/adventure.dart';
-import 'package:adventure/components/PlayerHitBox.dart';
+import 'package:adventure/components/playerHitBox.dart';
 import 'package:flame/collisions.dart';
 import 'package:flame/components.dart';
 

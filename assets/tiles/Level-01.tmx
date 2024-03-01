@@ -35,7 +35,7 @@
    <properties>
     <property name="isVertical" type="bool" value="false"/>
     <property name="offNeg" type="float" value="6"/>
-    <property name="offPos" type="float" value="6"/>
+    <property name="offPos" type="float" value="7"/>
    </properties>
   </object>
   <object id="49" name="Cherries" type="Fruit" x="560" y="176" width="32" height="32"/>
