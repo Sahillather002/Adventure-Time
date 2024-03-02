@@ -1,5 +1,8 @@
 import 'dart:async';
 
+import 'package:adventure/adventure.dart';
+import 'package:adventure/components/backgroundTiled.dart';
+import 'package:adventure/components/checkpoint.dart';
 import 'package:adventure/components/collisionBlock.dart';
 import 'package:adventure/components/fruit.dart';
 import 'package:adventure/components/player.dart';
@@ -7,7 +10,7 @@ import 'package:adventure/components/saw.dart';
 import 'package:flame/components.dart';
 import 'package:flame_tiled/flame_tiled.dart';
 
-class Level extends World {
+class Level extends World with HasGameRef<Adventure> {
   final String levelName;
   final Player player;
   Level({required this.levelName, required this.player});
@@ -17,14 +20,39 @@ class Level extends World {
   @override
   FutureOr<void> onLoad() async {
     level = await TiledComponent.load('$levelName.tmx', Vector2.all(16));
+
     add(level);
 
+    // _scrollingBackground();
+    _spawningObjects();
+    _addCollisions();
+
+    return super.onLoad();
+  }
+
+  // void _scrollingBackground() {
+  //   final backgroundLayer = level.tileMap.getLayer('Background');
+
+  //   if (backgroundLayer != null) {
+  //     final backgroundColor =
+  //         backgroundLayer.properties.getValue('BackgroundColor');
+  //     final backgroundTile = BackgroundTile(
+  //       color: backgroundColor ?? 'Gray',
+  //       position: Vector2(0, 0),
+  //     );
+  //     add(backgroundTile);
+  //   }
+  // }
+
+  void _spawningObjects() {
     final spawnPointsLayer = level.tileMap.getLayer<ObjectGroup>('Spawnpoints');
+
     if (spawnPointsLayer != null) {
       for (final spawnPoint in spawnPointsLayer.objects) {
         switch (spawnPoint.class_) {
           case 'Player':
             player.position = Vector2(spawnPoint.x, spawnPoint.y);
+            player.scale.x = 1;
             add(player);
             break;
           case 'Fruit':
@@ -48,12 +76,23 @@ class Level extends World {
             );
             add(saw);
             break;
+          case 'checkpoint':
+            final checkpoint = Checkpoint(
+              position: Vector2(spawnPoint.x, spawnPoint.y),
+              size: Vector2(spawnPoint.width, spawnPoint.height),
+            );
+            add(checkpoint);
+            break;
+
           default:
         }
       }
     }
+  }
 
+  void _addCollisions() {
     final collisionsLayer = level.tileMap.getLayer<ObjectGroup>('Collisions');
+
     if (collisionsLayer != null) {
       for (final collision in collisionsLayer.objects) {
         switch (collision.class_) {
@@ -73,12 +112,9 @@ class Level extends World {
             );
             collisionBlocks.add(block);
             add(block);
-            break;
         }
       }
     }
-
     player.collisionBlock = collisionBlocks;
-    return super.onLoad();
   }
 }
