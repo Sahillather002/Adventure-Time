@@ -65,6 +65,7 @@ flutter:
     - assets/images/HUD/
     - assets/images/Traps/Saw/
     - assets/images/Items/Fruits/
+    - assets/images/Items/Checkpoints/Checkpoint/
     - assets/images/Main Characters/
     - assets/images/Main Characters/Mask Dude/
     - assets/images/Main Characters/Ninja Frog/
